@@ -1,4 +1,4 @@
-# Copyright © 2021 rdbende <rdbende@gmail.com>
+# Copyright (c) 2021 rdbende <rdbende@gmail.com>
 
 # A beautiful azure ttk theme inspired by Microsoft's fluent design.
 
