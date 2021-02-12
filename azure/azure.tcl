@@ -1,6 +1,6 @@
 # Copyright (c) 2021 rdbende <rdbende@gmail.com>
 
-# A beautiful azure ttk theme inspired by Microsoft's fluent design.
+# Azure theme is a beautiful modern ttk theme inspired by Microsoft's fluent design.
 
 package require Tk 8.6
 
@@ -45,13 +45,20 @@ namespace eval ttk::theme::azure {
         ttk::style map . -foreground [list disabled $colors(-disabledfg)]
 
 
-
         # Layouts
 
         ttk::style layout TButton {
             Button.button -children {
                 Button.padding -children {
                     Button.label -side left -expand true
+                } 
+            }
+        }
+
+        ttk::style layout Toolbutton {
+            Toolbutton.button -children {
+                Toolbutton.padding -children {
+                    Toolbutton.label -side left -expand true
                 } 
             }
         }
@@ -192,19 +199,34 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Button.button image \
             [list $I(button-basic) \
-                disabled $I(button-disabled) \
                 {disabled pressed} $I(button-disabled) \
+                {focus active} $I(button-accent-hover) \
+                disabled $I(button-disabled) \
                 pressed $I(button-basic) \
                 active $I(button-hover) \
+                focus $I(button-accent) \
             ] -border 4 -sticky ewns
 
+
+        # Toolbutton
+        ttk::style configure Toolbutton -padding {8 4 8 4} -width -10 -anchor center
+
+        ttk::style element create Toolbutton.button image \
+            [list $I(empty) \
+                {disabled pressed} $I(button-disabled) \
+                disabled $I(empty) \
+                pressed $I(button-basic) \
+                active $I(button-basic) \
+            ] -border 4 -sticky ewns
+
+
         # Accentbutton
-        ttk::style configure Accentbutton -padding {8 4 8 4} -width -10 -anchor center -foreground #ffffff
+        ttk::style configure Accentbutton -padding {8 4 8 4} -width -10 -anchor center
 
         ttk::style element create Accentbutton.button image \
             [list $I(button-accent) \
-                disabled $I(button-disabled) \
                 {disabled pressed} $I(button-disabled) \
+                disabled $I(button-disabled) \
                 pressed $I(button-accent) \
                 active $I(button-accent-hover) \
             ] -border 4 -sticky ewns
@@ -313,10 +335,10 @@ namespace eval ttk::theme::azure {
         # Entry
         ttk::style element create Entry.field \
             image [list $I(entry-basic) \
+                {focus hover}    $I(entry-active) \
                 invalid $I(entry-invalid) \
                 disabled $I(entry-basic) \
                 focus    $I(entry-active) \
-                {focus hover}    $I(entry-active) \
                 hover    $I(entry-hover)] \
             -border 5 -padding {6 8} -sticky news
 
@@ -338,9 +360,10 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Menubutton.button \
             image [list $I(button-basic) \
+                {disabled pressed} $I(button-disabled) \
+                disabled $I(button-disabled) \
                 pressed  $I(button-basic) \
                 active   $I(button-hover) \
-                disabled $I(button-hover) \
             ] -border 4 -sticky news 
 
         ttk::style element create Menubutton.indicator \
@@ -355,9 +378,11 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create OptionMenu.button \
             image [list $I(button-basic) \
+                {disabled pressed} $I(button-disabled) \
+                disabled $I(button-disabled) \
                 pressed $I(button-basic) \
                 active $I(button-hover) \
-                disabled $I(button-hover) \
+                
             ] -border 5 -sticky news 
 
         ttk::style element create OptionMenu.indicator \
@@ -387,10 +412,10 @@ namespace eval ttk::theme::azure {
                 {readonly focus hover} $I(button-hover) \
                 {readonly focus} $I(button-basic) \
                 {readonly hover} $I(button-hover) \
+                {focus hover} $I(entry-active) \
                 readonly $I(button-basic) \
                 disabled $I(entry-basic) \
                 focus $I(entry-active) \
-                {focus hover} $I(entry-active) \
                 hover $I(entry-hover) \
             ] -border 5 -padding {6 8}
 
@@ -404,10 +429,10 @@ namespace eval ttk::theme::azure {
         # Spinbox
         ttk::style element create Spinbox.field \
             image [list $I(entry-basic) \
+                disabled $I(entry-basic) \
                 focus $I(entry-active) \
                 hover $I(entry-hover) \
-                disabled $I(entry-basic)] \
-            -border 5 -padding {6 8} -sticky news
+            ] -border 5 -padding {6 8} -sticky news
 
         ttk::style element create Spinbox.uparrow \
             image [list $I(arrow-up) \
@@ -425,7 +450,7 @@ namespace eval ttk::theme::azure {
         
         # Notebook
         ttk::style element create Notebook.client \
-            image $I(notebook-client) -border 3
+            image $I(notebook-client) -border 4
 
         ttk::style element create Notebook.tab \
             image [list $I(notebook-tab-basic) \
@@ -468,12 +493,10 @@ namespace eval ttk::theme::azure {
             -foreground [list selected $colors(-selectfg)]
 
         # Sashes
-        ttk::style element create vsash image $I(transparent) -sticky e -padding 1 -width 1
-        ttk::style element create hsash image $I(transparent) -sticky n -padding 1 -width 1
         
         ttk::style configure TPanedwindow -width 1 -padding 0
         ttk::style map TPanedwindow -background \
-            [list hover $colors(-selectbg)]
+            [list hover $colors(-bg)]
         
         # Set colors for other widgets
         tk_setPalette background [ttk::style lookup . -background] \
