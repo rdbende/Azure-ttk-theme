@@ -28,7 +28,7 @@ The use of switches is becoming more common nowadays, so this theme has a toggle
 switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onvalue=1)
 ```
 
-### Design
-This theme uses flat, rounded elements in **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#333333`, and it's uses the tk_setPalette procedure to set the background color of the window and other widget backgrounds and foregrounds
+## Design
+This theme uses flat, rounded elements in **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#333333`, and it's uses the tk_setPalette procedure to set the background color of the window and other widget colors.
 
 *It's a png-based theme, so like other third-party themes, it's relatively slow*
