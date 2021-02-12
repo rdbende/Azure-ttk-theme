@@ -19,11 +19,11 @@ To create an accent button:
 ```bash
 button = ttk.Button(root, text='Accent button', style='Accentbutton')
 ```
-To create switches and toggle buttons you need a checkbutton, to which you can apply the toggle switch, and toggle button styles
+To create a toggle button you need a checkbutton, to which you can apply the styles, and can be used as a checkbutton:
 ```bash
-togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton')
+togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=var, onvalue=1)
 ```
-###### The use of switches is becoming more common nowadays, so this theme has a toggle switch that can be applied to checkbuttons:
+The use of switches is becoming more common nowadays, so this theme has a toggle switch that can be applied to checkbuttons:
 ```
 switch = ttk.Checkbutton(root, text='Switch', style='Switch')
 ```
