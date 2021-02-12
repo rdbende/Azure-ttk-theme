@@ -15,8 +15,6 @@ y_cordinate = int((screen_height/2) - (window_height/2))
 
 root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
 
-
-
 style = ttk.Style(root)
 root.tk.call('source', 'azure.tcl')
 style.theme_use('azure')
@@ -93,7 +91,7 @@ def callback():
 button = ttk.Button(root, text='Button', command=callback)
 button.place(x=250, y=320)
 
-accentbutton = ttk.Button(root, text='Accent button', style='Accentbutton')
+accentbutton = ttk.Button(root, text='Accent button', style='Accentbutton', command=callback)
 accentbutton.place(x=250, y=370)
 
 toggle = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=f, offvalue=0, onvalue=1)
