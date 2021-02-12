@@ -23,8 +23,10 @@ To create switches and toggle buttons you need a checkbutton, to which you can a
 ```bash
 togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton')
 
+
 switch = ttk.Checkbutton(root, text='Switch', style='Switch')
 ```
 
 ### Design
-This theme uses flat, rounded elements in blue `#007fff, #3398ff` and gray `#e6e6e6, #cccccc, #737373, #333333`
+This theme uses flat, rounded elements in blue `#007fff, #3398ff` and gray `#e6e6e6, #cccccc, #737373, #333333`\
+> It's a png-based theme, so like other third-party themes, it's relatively slow
