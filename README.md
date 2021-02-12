@@ -26,4 +26,5 @@ togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton')
 switch = ttk.Checkbutton(root, text='Switch', style='Switch')
 ```
 
-#### This theme uses flat, rounded elements in blue `#007fff, #3398ff` and gray `#e6e6e6, #cccccc, #737373, #333333`
+### Design
+This theme uses flat, rounded elements in blue `#007fff, #3398ff` and gray `#e6e6e6, #cccccc, #737373, #333333`
