@@ -1,5 +1,4 @@
 # Azure theme for ttk
-## The dark theme has arrived!!
 
 ### Azure theme is a beautiful modern ttk theme inspired by Microsoft's fluent design.
 
