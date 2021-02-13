@@ -1,10 +1,10 @@
 # Azure theme for ttk
 
-### Azure theme is a beautiful modern ttk theme inspired by Microsoft's fluent design.
-
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/azure/screenshot.png)
 
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/azure%20dark/screenshot.png)
+
+#### Azure theme is a beautiful modern ttk theme inspired by Microsoft's fluent design.
 
 ## Usage (tkinter)
 To use the theme just create a style, import the **azure.tcl** file, and call the set_theme command to set the theme:
