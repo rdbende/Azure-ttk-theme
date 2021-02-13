@@ -12,7 +12,7 @@ namespace eval ttk::theme::azure {
     array set colors {
         -fg             "#000000"
         -bg             "#ffffff"
-        -disabledfg     "#777777"
+        -disabledfg     "#737373"
         -disabledbg     "#ffffff"
         -selectfg       "#000000"
         -selectbg       "#cccccc"
@@ -252,7 +252,7 @@ namespace eval ttk::theme::azure {
         ttk::style element create Switch.indicator image \
             [list $I(switch-off) \
                 {selected disabled} $I(switch-on-disabled) \
-                disabled $I(switch-off-disabled) \
+                disabled $I(switch-off) \
                 {pressed selected} $I(switch-on-hover) \
                 {active selected} $I(switch-on-hover) \
                 selected $I(switch-on) \
@@ -284,7 +284,7 @@ namespace eval ttk::theme::azure {
                 {pressed selected} $I(radio-selected-active) \
                 {active selected} $I(radio-selected-hover) \
                 selected $I(radio-selected) \
-                {pressed !selected} $I(radio-unselected-active) \
+                {pressed !selected} $I(scale-slider-pressed) \
                 active $I(radio-unselected-hover) \
             ] -width 26 -sticky w
 
