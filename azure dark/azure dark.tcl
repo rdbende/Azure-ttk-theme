@@ -204,7 +204,6 @@ namespace eval ttk::theme::azure {
                 disabled $I(button-disabled) \
                 pressed $I(button-basic) \
                 active $I(button-hover) \
-                focus $I(button-accent) \
             ] -border 4 -sticky ewns
 
 
