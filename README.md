@@ -32,7 +32,7 @@ switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onva
 
 ## Design
 - Flat, rounded elements, high contrast
-- Colors: **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#333333`
+- Colors: **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#999999` `#333333`
 - This theme, unlike many other themes, uses the tk_setPalette procedure to set the background color of the window and the colors of other tkinter widgets.
 
 *It's a png-based theme, so like other third-party themes, it's relatively slow*
