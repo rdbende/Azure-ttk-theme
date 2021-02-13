@@ -23,7 +23,7 @@ To create a toggle button you need a checkbutton, to which you can apply the sty
 ```bash
 togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=var, onvalue=1)
 ```
-The use of switches is becoming more common nowadays, so this theme has a toggle switch style, that can be applied to checkbuttons:
+The use of switches is becoming more common these days, so this theme has a toggle switch style, that can be applied to checkbuttons:
 ```
 switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onvalue=1)
 ```
