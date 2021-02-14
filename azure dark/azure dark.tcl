@@ -4,10 +4,10 @@
 
 package require Tk 8.6
 
-namespace eval ttk::theme::azure {
+namespace eval ttk::theme::azure dark {
 
     variable version 0.1
-    package provide ttk::theme::azure $version
+    package provide ttk::theme::azure dark $version
     variable colors
     array set colors {
         -fg             "#ffffff"
@@ -29,7 +29,7 @@ namespace eval ttk::theme::azure {
 
     LoadImages [file join [file dirname [info script]] images]
 
-    ttk::style theme create azure -parent default -settings {
+    ttk::style theme create azure dark -parent default -settings {
         ttk::style configure . \
             -background $colors(-bg) \
             -foreground $colors(-fg) \
