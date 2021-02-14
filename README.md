@@ -8,7 +8,7 @@
 
 ## Usage (tkinter)
 To use the theme just create a style, import the **azure.tcl** file, and call the `theme_use` command to set the theme:
-```bash
+```
 style = ttk.Style(root)
 root.tk.call('source', 'azure.tcl')
 style.theme_use('azure')
@@ -18,11 +18,11 @@ style.theme_use('azure')
 Azure theme has a style for every ttk widget, but there are some new widget styles, such as an accent button, toggle switch, and toggle button. You can apply these with the style option
 
 To create an accent button:
-```bash
+```
 button = ttk.Button(root, text='Accent button', style='Accentbutton')
 ```
 To create a toggle button you need a checkbutton, to which you can apply the style:
-```bash
+```
 togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=var, onvalue=1)
 ```
 The use of switches is becoming more common these days, so this theme has a toggle switch style, that can be applied to checkbuttons:
