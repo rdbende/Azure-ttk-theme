@@ -17,7 +17,7 @@ root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_c
 
 style = ttk.Style(root)
 root.tk.call('source', 'azure dark.tcl')
-style.theme_use('azure')
+style.theme_use('azure dark')
 
 options = ['', 'OptionMenu', 'Value 1', 'Value 2']
 a = tk.IntVar()
