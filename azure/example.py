@@ -82,8 +82,8 @@ menu.add_command(label='Menu item 4')
 menubtn = ttk.Menubutton(root, text='Menubutton', menu=menu, direction='below')
 menubtn.place(x=250, y=220)
 
-menubtn = ttk.OptionMenu(root, e, *options)
-menubtn.place(x=250, y=270)
+optmenu = ttk.OptionMenu(root, e, *options)
+optmenu.place(x=250, y=270)
 
 def callback():
     print('Button callback')
