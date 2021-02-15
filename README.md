@@ -17,7 +17,7 @@ style.theme_use('azure')
 ## New style elements
 Azure theme has a style for every ttk widget, but there are some new widget styles, such as an accent button, toggle switch, and toggle button. You can apply these with the style option
 
-To create an accent button:
+If you need a conspicuous button, use accentbutton:
 ```
 button = ttk.Button(root, text='Accent button', style='Accentbutton')
 ```
