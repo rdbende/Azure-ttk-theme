@@ -200,7 +200,6 @@ namespace eval ttk::theme::azure_dark {
         ttk::style element create Button.button image \
             [list $I(button-basic) \
                 {disabled pressed} $I(button-disabled) \
-                {focus active} $I(button-accent-hover) \
                 disabled $I(button-disabled) \
                 pressed $I(button-basic) \
                 active $I(button-hover) \
