@@ -184,12 +184,11 @@ namespace eval ttk::theme::azure_dark {
 
         ttk::style layout Item {
             Treeitem.padding -sticky nswe -children {
-                Treeitem.indicator -side left -sticky {} Treeitem.image -side left -sticky {} -children {
-                    Treeitem.text -side left -sticky {}
-                    }
-                }
+                Treeitem.indicator -side left -sticky {}
+                Treeitem.image -side left -sticky {}
+                Treeitem.text -side left -sticky {}
+            }
         }
-
 
 
         # Create widgets
