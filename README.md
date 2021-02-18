@@ -148,8 +148,8 @@ switch.invoke()
 size = ttk.Sizegrip(root)
 size.place(x=780, y=510)
 
-sep1 = ttk.Separator()
-sep1.place(x=20, y=235, width=210)
+sep = ttk.Separator()
+sep.place(x=20, y=235, width=210)
 
 notebook = ttk.Notebook(root)
 notebookTab1 = ttk.Frame(notebook, width=335, height=150)
