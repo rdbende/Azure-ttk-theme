@@ -4,16 +4,13 @@ from tkinter import ttk
 root = tk.Tk()
 root.title('Azure')
 
-window_height = 530
-window_width = 800
-
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-
-x_cordinate = int((screen_width/2) - (window_width/2))
-y_cordinate = int((screen_height/2) - (window_height/2))
-
-root.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+windowWidth = 800
+windowHeight = 530
+screenWidth = root.winfo_screenwidth()
+screenHeight = root.winfo_screenheight()
+xCordinate = int((screenWidth/2) - (windowWidth/2))
+yCordinate = int((screenHeight/2) - (windowHeight/2))
+root.geometry("{}x{}+{}+{}".format(windowWidth, windowHeight, xCordinate, yCordinate))
 
 style = ttk.Style(root)
 root.tk.call('source', 'azure.tcl')
@@ -56,6 +53,15 @@ radio2.place(x=20, y=60)
 radio3 = ttk.Radiobutton(frame2, text='Disabled', state='disabled')
 radio3.place(x=20, y=100)
 
+def scale(i):
+    g.set(int(scale.get()))
+
+scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale)
+scale.place(x=80, y=430)
+
+progress = ttk.Progressbar(root, value=0, variable=g, mode='determinate')
+progress.place(x=80, y=480)
+
 entry = ttk.Entry(root)
 entry.place(x=250, y=20)
 entry.insert(0, 'Entry')
@@ -96,15 +102,6 @@ accentbutton.place(x=250, y=370)
 
 toggle = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=f, offvalue=0, onvalue=1)
 toggle.place(x=250, y=420)
-
-def scale(i):
-    g.set(int(scale.get()))
-
-scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale)
-scale.place(x=80, y=430)
-
-progress = ttk.Progressbar(root, value=0, variable=g, mode='determinate')
-progress.place(x=80, y=480)
 
 switch = ttk.Checkbutton(root, text='Toggle switch', style='Switch', variable=h, offvalue=0, onvalue=1)
 switch.place(x=250, y=470)
@@ -176,6 +173,5 @@ treeview.insert(parent=21, index='end', iid=22, text="Child", values=("Subitem 4
 treeview.insert(parent=21, index='end', iid=23, text="Child", values=("Subitem 4.2.2", "Value 4.2.2"))
 treeview.insert(parent=21, index='end', iid=24, text="Child", values=("Subitem 4.2.3", "Value 4.2.3"))
 treeview.insert(parent=19, index='end', iid=25, text="Child", values=("Subitem 4.3", "Value 4.3"))
-
 
 root.mainloop()
