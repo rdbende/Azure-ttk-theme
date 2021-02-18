@@ -1,6 +1,6 @@
 # Azure theme for ttk
 
-### *It's a png-based theme, so like other third-party themes, it's relatively slow*
+### *It's a png-based theme, so it's relatively slow*
 
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/azure/screenshot.png)
 
