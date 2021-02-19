@@ -216,7 +216,7 @@ root.mainloop()
 ```
 
 ## Design
-- This theme was inspired by Microsoft's fluent design (code based on RedFantom's [Adapta theme](https://github.com/TkinterEP/ttkthemes/tree/master/ttkthemes/png/adapta))
+- This theme was inspired by Microsoft's fluent design
 - Flat, rounded elements
 - High contrast
 - Focus removed
