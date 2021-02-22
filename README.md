@@ -21,7 +21,7 @@ style.theme_use('azure / azure_dark')
 ## New style elements
 Azure theme has a style for every ttk widget, but there are some new widget styles, such as an accent button, toggle switch, and toggle button. You can apply these with the style option
 
-If you need a conspicuous button, use accentbutton:
+If you need a marked button, use accentbutton:
 ```python
 button = ttk.Button(root, text='Accent button', style='Accentbutton')
 ```
@@ -148,8 +148,8 @@ switch.invoke()
 size = ttk.Sizegrip(root)
 size.place(x=780, y=510)
 
-sep = ttk.Separator()
-sep.place(x=20, y=235, width=210)
+sep1 = ttk.Separator()
+sep1.place(x=20, y=235, width=210)
 
 notebook = ttk.Notebook(root)
 notebookTab1 = ttk.Frame(notebook, width=335, height=150)
@@ -215,11 +215,6 @@ treeview.insert(parent=19, index='end', iid=25, text="Child", values=("Subitem 4
 root.mainloop()
 ```
 
-## Design
-- This theme was inspired by Microsoft's fluent design
-- Flat, rounded elements
-- High contrast
-- Focus removed
+## Design - inspired by Microsoft's fluent design
+- Flat, rounded elements, high contrast
 - Colors: **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#999999` `#333333`
-
-
