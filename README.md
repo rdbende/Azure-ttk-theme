@@ -12,10 +12,10 @@ To use the theme just create a style, import the **azure.tcl**, or the **azure_d
 style = ttk.Style(root)
 
 # Import the tcl file
-root.tk.call('source', 'azure.tcl / azure_dark.tcl')
+root.tk.call('source', 'azure.tcl / azure-dark.tcl')
 
 # Set the theme with the theme_use command
-style.theme_use('azure / azure_dark')
+style.theme_use('azure / azure-dark')
 ```
 
 ## New style elements
