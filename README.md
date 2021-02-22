@@ -1,5 +1,7 @@
 # Azure theme for ttk
 
+#### Warning: I have changed some style names, and currently have `AccentButton` and `ToggleButton`, instead of `Accentbutton` and `Togglebutton`!
+
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
 
@@ -32,7 +34,11 @@ The use of switches is becoming more common these days, so this theme has a togg
 switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onvalue=1)
 ```
 
-## Example
+## Design - inspired by Microsoft's fluent design
+- Flat, rounded elements, high contrast
+- Colors: **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#999999` `#333333`
+
+## A short example
 ```python
 import tkinter as tk
 from tkinter import ttk
@@ -212,7 +218,3 @@ treeview.insert(parent=19, index='end', iid=25, text="Child", values=("Subitem 4
 
 root.mainloop()
 ```
-
-## Design - inspired by Microsoft's fluent design
-- Flat, rounded elements, high contrast
-- Colors: **blue** `#007fff` `#3398ff` and **gray** `#e6e6e6` `#cccccc` `#737373` `#999999` `#333333`
