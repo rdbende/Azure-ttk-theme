@@ -90,10 +90,10 @@ namespace eval ttk::theme::azure {
             }
         }
 
-        ttk::style layout Accentbutton {
-            Accentbutton.button -children {
-                Accentbutton.padding -children {
-                    Accentbutton.label -side left -expand true
+        ttk::style layout AccentButton {
+            AccentButton.button -children {
+                AccentButton.padding -children {
+                    AccentButton.label -side left -expand true
                 } 
             }
         }
@@ -116,10 +116,10 @@ namespace eval ttk::theme::azure {
             }
         }
 
-        ttk::style layout Togglebutton {
-            Togglebutton.button -children {
-                Togglebutton.padding -children {
-                    Togglebutton.label -side left -expand true
+        ttk::style layout ToggleButton {
+            ToggleButton.button -children {
+                ToggleButton.padding -children {
+                    ToggleButton.label -side left -expand true
                 } 
             }
         }
@@ -255,10 +255,10 @@ namespace eval ttk::theme::azure {
                 disabled $I(down) \
             ] -width 15 -sticky e
 
-        # Accentbutton
-        ttk::style configure Accentbutton -padding {8 4 8 4} -width -10 -anchor center
+        # AccentButton
+        ttk::style configure AccentButton -padding {8 4 8 4} -width -10 -anchor center
 
-        ttk::style element create Accentbutton.button image \
+        ttk::style element create AccentButton.button image \
             [list $I(rect-accent) \
                 disabled $I(rect-accent-hover) \
                 pressed $I(rect-accent) \
@@ -294,10 +294,10 @@ namespace eval ttk::theme::azure {
                 active $I(off-hover) \
             ] -width 46 -sticky w
 
-        # Togglebutton
-        ttk::style configure Togglebutton -padding {8 4 8 4} -width -10 -anchor center
+        # ToggleButton
+        ttk::style configure ToggleButton -padding {8 4 8 4} -width -10 -anchor center
 
-        ttk::style element create Togglebutton.button image \
+        ttk::style element create ToggleButton.button image \
             [list $I(rect-basic) \
                 {selected disabled} $I(rect-accent-hover) \
                 disabled $I(rect-basic) \
