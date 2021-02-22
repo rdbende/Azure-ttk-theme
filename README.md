@@ -6,7 +6,7 @@
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
 
 ## Usage (tkinter)
-To use the theme just create a style, import the **azure.tcl**, or the **azure_dark.tcl** file, and call the `theme_use` command to set the theme:
+To use the theme just create a style, import the **azure.tcl**, or the **azure-dark.tcl** file, and call the `theme_use` command to set the theme:
 ```python
 # Create a style
 style = ttk.Style(root)
