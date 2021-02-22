@@ -1,7 +1,5 @@
 # Azure theme for ttk
 
-### It's a png-based theme, so it's relatively slow
-
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
 
@@ -21,13 +19,13 @@ style.theme_use('azure / azure-dark')
 ## New style elements
 Azure theme has a style for every ttk widget, but there are some new widget styles, such as an accent button, toggle switch, and toggle button. You can apply these with the style option
 
-If you need a marked button, use accentbutton:
+If you need a marked button, use AccentButton:
 ```python
-button = ttk.Button(root, text='Accent button', style='Accentbutton')
+button = ttk.Button(root, text='AccentButton', style='AccentButton')
 ```
-To create a toggle button you need a checkbutton, to which you can apply the style:
+To create a ToggleButton you need a checkbutton, to which you can apply the style:
 ```python
-togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=var, onvalue=1)
+togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=var, onvalue=1)
 ```
 The use of switches is becoming more common these days, so this theme has a toggle switch style, that can be applied to checkbuttons:
 ```python
