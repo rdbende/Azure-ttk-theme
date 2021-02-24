@@ -135,10 +135,10 @@ def callback():
 button = ttk.Button(root, text='Button', command=callback)
 button.place(x=250, y=320)
 
-accentbutton = ttk.Button(root, text='Accent button', style='Accentbutton', command=callback)
+accentbutton = ttk.Button(root, text='Accent button', style='AccentButton', command=callback)
 accentbutton.place(x=250, y=370)
 
-toggle = ttk.Checkbutton(root, text='Toggle button', style='Togglebutton', variable=f, offvalue=0, onvalue=1)
+toggle = ttk.Checkbutton(root, text='Toggle button', style='ToggleButton', variable=f, offvalue=0, onvalue=1)
 toggle.place(x=250, y=420)
 
 switch = ttk.Checkbutton(root, text='Toggle switch', style='Switch', variable=h, offvalue=0, onvalue=1)
