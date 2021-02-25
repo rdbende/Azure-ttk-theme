@@ -14,7 +14,7 @@ style = ttk.Style(root)
 # Import the tcl file
 root.tk.call('source', 'azure.tcl / azure-dark.tcl')
 
-# Set the theme with the theme_use command
+# Set the theme with the theme_use method
 style.theme_use('azure / azure-dark')
 ```
 
@@ -36,12 +36,15 @@ switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onva
 
 ## A short example
 ```python
+# Importing Tkinter and Ttk
 import tkinter as tk
 from tkinter import ttk
 
+# Creating the window
 root = tk.Tk()
 root.title('Azure')
 
+# Place the window in the center of the screen
 windowWidth = 800
 windowHeight = 530
 screenWidth = root.winfo_screenwidth()
@@ -50,72 +53,91 @@ xCordinate = int((screenWidth/2) - (windowWidth/2))
 yCordinate = int((screenHeight/2) - (windowHeight/2))
 root.geometry("{}x{}+{}+{}".format(windowWidth, windowHeight, xCordinate, yCordinate))
 
+# Create a style
 style = ttk.Style(root)
+
+# Import the tcl file
 root.tk.call('source', 'azure.tcl')
+
+# Set the theme with the theme_use method
 style.theme_use('azure')
 
+# Creating a list for the OptionMenu
 options = ['', 'OptionMenu', 'Value 1', 'Value 2']
+
+# Creating control variables
 a = tk.IntVar()
-b = tk.IntVar()
-b.set(1)
+b = tk.IntVar(value=1)
 c = tk.IntVar()
-d = tk.IntVar()
-d.set(2)
-e = tk.StringVar()
-e.set(options[1])
+d = tk.IntVar(value=2)
+e = tk.StringVar(value=options[1])
 f = tk.IntVar()
-g = tk.IntVar()
-g.set(75)
+g = tk.IntVar(value=75)
 h = tk.IntVar()
 
-frame1 = ttk.LabelFrame(root, text='Checkbuttons', width=210, height=200)
-frame1.place(x=20, y=12)
+# Creating a Frame for the Checkbuttons
+checkframe = ttk.LabelFrame(root, text='Checkbuttons', width=210, height=200)
+checkframe.place(x=20, y=12)
 
-frame2 = ttk.LabelFrame(root, text='Radiobuttons', width=210, height=160)
-frame2.place(x=20, y=252)
-
-check1 = ttk.Checkbutton(frame1, text='Unchecked', variable=a, offvalue=0, onvalue=1)
+# Checkbuttons
+check1 = ttk.Checkbutton(checkframe, text='Unchecked', variable=a, offvalue=0, onvalue=1)
 check1.place(x=20, y=20)
-check2 = ttk.Checkbutton(frame1, text='Checked', variable=b, offvalue=0, onvalue=1)
+check2 = ttk.Checkbutton(checkframe, text='Checked', variable=b, offvalue=0, onvalue=1)
 check2.place(x=20, y=60)
-check3 = ttk.Checkbutton(frame1, text='Third state', variable=c, offvalue=0, onvalue=1)
+check3 = ttk.Checkbutton(checkframe, text='Third state', variable=c, offvalue=0, onvalue=1)
 check3.state(['alternate'])
 check3.place(x=20, y=100)
-check4 = ttk.Checkbutton(frame1, text='Disabled', state='disabled')
+check4 = ttk.Checkbutton(checkframe, text='Disabled', state='disabled')
 check4.place(x=20, y=140)
 
-radio1 = ttk.Radiobutton(frame2, text='Deselected', variable=d, value=1)
+# Creating a Frame for the Radiobuttons
+radioframe = ttk.LabelFrame(root, text='Radiobuttons', width=210, height=160)
+radioframe.place(x=20, y=252)
+
+# Radiobuttons
+radio1 = ttk.Radiobutton(radioframe, text='Deselected', variable=d, value=1)
 radio1.place(x=20, y=20)
-radio2 = ttk.Radiobutton(frame2, text='Selected', variable=d, value=2)
+radio2 = ttk.Radiobutton(radioframe, text='Selected', variable=d, value=2)
 radio2.place(x=20, y=60)
-radio3 = ttk.Radiobutton(frame2, text='Disabled', state='disabled')
+radio3 = ttk.Radiobutton(radioframe, text='Disabled', state='disabled')
 radio3.place(x=20, y=100)
+
+# Separator
+separator = ttk.Separator()
+separator.place(x=20, y=235, width=210)
 
 def scale(i):
     g.set(int(scale.get()))
 
+# Scale
 scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale)
 scale.place(x=80, y=430)
 
+# Progressbar
 progress = ttk.Progressbar(root, value=0, variable=g, mode='determinate')
 progress.place(x=80, y=480)
 
+# Entry
 entry = ttk.Entry(root)
 entry.place(x=250, y=20)
 entry.insert(0, 'Entry')
 
-spin = ttk.Spinbox(root, from_=0, to=100, increment=0.1)
-spin.place(x=250, y=70)
-spin.insert(0, 'Spinbox')
+# Spinbox
+spinbox = ttk.Spinbox(root, from_=0, to=100, increment=0.1)
+spinbox.place(x=250, y=70)
+spinbox.insert(0, 'Spinbox')
 
-combo1 = ttk.Combobox(root, value=['Combobox', 'Editable item 1', 'Editable item 2'])
-combo1.current(0)
-combo1.place(x=250, y=120)
+# Combobox
+combobox = ttk.Combobox(root, value=['Combobox', 'Editable item 1', 'Editable item 2'])
+combobox.current(0)
+combobox.place(x=250, y=120)
 
-combo2 = ttk.Combobox(root, state='readonly', value=['Readonly combobox', 'Item 1', 'Item 2'])
-combo2.current(0)
-combo2.place(x=250, y=170)
+# Read-only combobox
+readonlycombo = ttk.Combobox(root, state='readonly', value=['Readonly combobox', 'Item 1', 'Item 2'])
+readonlycombo.current(0)
+readonlycombo.place(x=250, y=170)
 
+# Menu for the Menubutton
 menu = tk.Menu(root, tearoff=0)
 menu.add_command(label='Menu item 1')
 menu.add_command(label='Menu item 2')
@@ -123,34 +145,47 @@ menu.add_separator()
 menu.add_command(label='Menu item 3')
 menu.add_command(label='Menu item 4')
 
-menubtn = ttk.Menubutton(root, text='Menubutton', menu=menu, direction='below')
-menubtn.place(x=250, y=220)
+# Menubutton
+menubutton = ttk.Menubutton(root, text='Menubutton', menu=menu, direction='below')
+menubutton.place(x=250, y=220)
 
-optmenu = ttk.OptionMenu(root, e, *options)
-optmenu.place(x=250, y=270)
+# OptionMenu
+optionmenu = ttk.OptionMenu(root, e, *options)
+optionmenu.place(x=250, y=270)
 
 def callback():
     print('Button callback')
 
+# Button
 button = ttk.Button(root, text='Button', command=callback)
 button.place(x=250, y=320)
 
-accentbutton = ttk.Button(root, text='Accent button', style='AccentButton', command=callback)
+# Accentbutton
+accentbutton = ttk.Button(root, text='AccentButton', style='AccentButton', command=callback)
 accentbutton.place(x=250, y=370)
 
-toggle = ttk.Checkbutton(root, text='Toggle button', style='ToggleButton', variable=f, offvalue=0, onvalue=1)
-toggle.place(x=250, y=420)
+# ToggleButton
+togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=f, offvalue=0, onvalue=1)
+togglebutton.place(x=250, y=420)
 
-switch = ttk.Checkbutton(root, text='Toggle switch', style='Switch', variable=h, offvalue=0, onvalue=1)
+# Switch
+switch = ttk.Checkbutton(root, text='Switch on', style='Switch', variable=h, offvalue=0, onvalue=1)
 switch.place(x=250, y=470)
 switch.invoke()
 
-size = ttk.Sizegrip(root)
-size.place(x=780, y=510)
+def switch_function():
+    if h.get():
+        switch.config(text='Switch on')
+    else:
+        switch.config(text='Switch off')
+       
+switch.config(command=switch_function)
 
-sep = ttk.Separator()
-sep.place(x=20, y=235, width=210)
+# Sizegrip
+sizegrip = ttk.Sizegrip(root)
+sizegrip.place(x=780, y=510)
 
+# Notebook
 notebook = ttk.Notebook(root)
 notebookTab1 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab1, text='Tab 1')
@@ -160,12 +195,15 @@ notebookTab3 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab3, text='Tab 3')
 notebook.place(x=420, y=330)
 
+# Creating a Frame for the Treeview
 treeFrame = ttk.Frame(root)
 treeFrame.place(x=420, y=20)
 
+# Scrollbar
 treeScroll = ttk.Scrollbar(treeFrame)
 treeScroll.pack(side='right', fill='y')
 
+# Treeview
 treeview = ttk.Treeview(treeFrame, selectmode="extended", yscrollcommand=treeScroll.set, columns=(1, 2), height=12)
 treeview.pack()
 
