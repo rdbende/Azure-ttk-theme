@@ -40,7 +40,7 @@ switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var, onva
 import tkinter as tk
 from tkinter import ttk
 
-# Creating the window
+# Create the window
 root = tk.Tk()
 root.title('Azure')
 
@@ -62,20 +62,22 @@ root.tk.call('source', 'azure.tcl')
 # Set the theme with the theme_use method
 style.theme_use('azure')
 
-# Creating a list for the OptionMenu
-options = ['', 'OptionMenu', 'Value 1', 'Value 2']
+# Creating lists
+option_list = ['', 'OptionMenu', 'Value 1', 'Value 2']
+combo_list = ['Combobox', 'Editable item 1', 'Editable item 2']
+readonlycombo_list = ['Readonly combobox', 'Item 1', 'Item 2']
 
-# Creating control variables
+# Create control variables
 a = tk.IntVar()
 b = tk.IntVar(value=1)
 c = tk.IntVar()
 d = tk.IntVar(value=2)
-e = tk.StringVar(value=options[1])
+e = tk.StringVar(value=option_list[1])
 f = tk.IntVar()
 g = tk.IntVar(value=75)
 h = tk.IntVar()
 
-# Creating a Frame for the Checkbuttons
+# Create a Frame for the Checkbuttons
 checkframe = ttk.LabelFrame(root, text='Checkbuttons', width=210, height=200)
 checkframe.place(x=20, y=12)
 
@@ -90,7 +92,7 @@ check3.place(x=20, y=100)
 check4 = ttk.Checkbutton(checkframe, text='Disabled', state='disabled')
 check4.place(x=20, y=140)
 
-# Creating a Frame for the Radiobuttons
+# Create a Frame for the Radiobuttons
 radioframe = ttk.LabelFrame(root, text='Radiobuttons', width=210, height=160)
 radioframe.place(x=20, y=252)
 
@@ -106,11 +108,11 @@ radio3.place(x=20, y=100)
 separator = ttk.Separator()
 separator.place(x=20, y=235, width=210)
 
-def scale(i):
+def scale_function(*args):
     g.set(int(scale.get()))
 
 # Scale
-scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale)
+scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale_function)
 scale.place(x=80, y=430)
 
 # Progressbar
@@ -128,12 +130,12 @@ spinbox.place(x=250, y=70)
 spinbox.insert(0, 'Spinbox')
 
 # Combobox
-combobox = ttk.Combobox(root, value=['Combobox', 'Editable item 1', 'Editable item 2'])
+combobox = ttk.Combobox(root, value=combo_list)
 combobox.current(0)
 combobox.place(x=250, y=120)
 
 # Read-only combobox
-readonlycombo = ttk.Combobox(root, state='readonly', value=['Readonly combobox', 'Item 1', 'Item 2'])
+readonlycombo = ttk.Combobox(root, state='readonly', value=readonlycombo_list)
 readonlycombo.current(0)
 readonlycombo.place(x=250, y=170)
 
@@ -150,18 +152,18 @@ menubutton = ttk.Menubutton(root, text='Menubutton', menu=menu, direction='below
 menubutton.place(x=250, y=220)
 
 # OptionMenu
-optionmenu = ttk.OptionMenu(root, e, *options)
+optionmenu = ttk.OptionMenu(root, e, *option_list)
 optionmenu.place(x=250, y=270)
 
-def callback():
+def button_function():
     print('Button callback')
 
 # Button
-button = ttk.Button(root, text='Button', command=callback)
+button = ttk.Button(root, text='Button', command=button_function)
 button.place(x=250, y=320)
 
 # Accentbutton
-accentbutton = ttk.Button(root, text='AccentButton', style='AccentButton', command=callback)
+accentbutton = ttk.Button(root, text='AccentButton', style='AccentButton', command=button_function)
 accentbutton.place(x=250, y=370)
 
 # ToggleButton
@@ -195,7 +197,7 @@ notebookTab3 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab3, text='Tab 3')
 notebook.place(x=420, y=330)
 
-# Creating a Frame for the Treeview
+# Create a Frame for the Treeview
 treeFrame = ttk.Frame(root)
 treeFrame.place(x=420, y=20)
 
