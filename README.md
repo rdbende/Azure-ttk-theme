@@ -1,6 +1,6 @@
 # Azure theme for ttk
 
-#### Warning: I have changed some style names, and currently have `AccentButton` and `ToggleButton`, instead of `Accentbutton` and `Togglebutton`!
+#### Warning: I have changed some style names, so currently have `AccentButton` and `ToggleButton`, instead of `Accentbutton` and `Togglebutton`!
 
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
@@ -108,7 +108,7 @@ radio3.place(x=20, y=100)
 separator = ttk.Separator()
 separator.place(x=20, y=235, width=210)
 
-def scale_function(*args):
+def scale_function(*arg):
     g.set(int(scale.get()))
 
 # Scale
@@ -185,7 +185,7 @@ switch.config(command=switch_function)
 
 # Sizegrip
 sizegrip = ttk.Sizegrip(root)
-sizegrip.place(x=780, y=510)
+sizegrip.pack(padx=5, pady=5, side='bottom', anchor='se')
 
 # Notebook
 notebook = ttk.Notebook(root)
