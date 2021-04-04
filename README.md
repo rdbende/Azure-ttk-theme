@@ -56,8 +56,8 @@ root.mainloop()
 ```
 
 ## Warnings:
-- If you don't use Windows, the default font for tkinter (`TkDefaultFont`) can be a bit ugly in the theme, so I recommend to you use [`tkextrafont`](https://github.com/TkinterEP/python-tkextrafont), which is great if you want to use an `.ttf` file without installing (the theme uses Arial)
-- Performance issue:
+- If you don't use Windows, the default font for tkinter (`TkDefaultFont`) can be a bit ugly in the theme, so I recommend to you use [`tkextrafont`](https://github.com/TkinterEP/python-tkextrafont), which is great if you want to use an `.ttf` file without installing (I use Arial for it and recommend this to everyone)
+- Performance issue:\
 If you put a widget inside a `LabelFrame`, the hover rendering can be extra slow (the same goes for `Notebook`)
 
 ## Design - inspired by Microsoft's [Fluent](https://www.microsoft.com/design/fluent/) design
