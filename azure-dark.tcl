@@ -6,7 +6,7 @@ package require Tk 8.6
 
 namespace eval ttk::theme::azure-dark {
 
-    variable version 1.2
+    variable version 1.3
     package provide ttk::theme::azure-dark $version
     variable colors
     array set colors {
@@ -365,16 +365,16 @@ namespace eval ttk::theme::azure-dark {
 
         # Progressbar
         ttk::style element create Horizontal.Progressbar.trough image $I(hor-basic) \
-            -border {} -sticky ew
+            -sticky ew
 
         ttk::style element create Horizontal.Progressbar.pbar image $I(hor-accent) \
-            -border {} -sticky ew
+            -sticky ew
 
         ttk::style element create Vertical.Progressbar.trough image $I(vert-basic) \
-            -border {} -sticky ns
+            -sticky ns
 
         ttk::style element create Vertical.Progressbar.pbar image $I(vert-accent) \
-            -border {} -sticky ns
+            -sticky ns
 
         # Entry
         ttk::style element create Entry.field \
@@ -453,7 +453,7 @@ namespace eval ttk::theme::azure-dark {
         
         # Notebook
         ttk::style element create Notebook.client \
-            image $I(client) -border 4
+            image $I(notebook) -border 4
 
         ttk::style element create Notebook.tab \
             image [list $I(tab-disabled) \
@@ -467,7 +467,7 @@ namespace eval ttk::theme::azure-dark {
 
         ttk::style element create Treeheading.cell \
             image [list $I(tree-basic) \
-                active $I(tree-hover)
+                pressed $I(tree-pressed)
             ] -border 5 -padding 4 -sticky ewns
         
         ttk::style element create Treeitem.indicator \

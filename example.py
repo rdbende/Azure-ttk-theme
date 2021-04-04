@@ -1,10 +1,16 @@
-# Importing Tkinter and Ttk
+"""
+Example script for testing the Azure theme
+Author: rdbende
+License: GNU GPLv2.1
+"""
+
+# Importing tkinter and tkinter.ttk
 import tkinter as tk
 from tkinter import ttk
 
 # Create the window
 root = tk.Tk()
-root.title('Azure')
+root.title('Azure dark')
 
 # Place the window in the center of the screen
 windowWidth = 800
@@ -15,40 +21,43 @@ xCordinate = int((screenWidth/2) - (windowWidth/2))
 yCordinate = int((screenHeight/2) - (windowHeight/2))
 root.geometry("{}x{}+{}+{}".format(windowWidth, windowHeight, xCordinate, yCordinate))
 
+
+### Here are the three lines by which we set the theme ###
 # Create a style
 style = ttk.Style(root)
 
 # Import the tcl file
-root.tk.call('source', 'azure.tcl')
+root.tk.call('source', 'azure-dark.tcl')
 
 # Set the theme with the theme_use method
-style.theme_use('azure')
+style.theme_use('azure-dark')
 
-# Creating lists
-option_list = ['', 'OptionMenu', 'Value 1', 'Value 2']
-combo_list = ['Combobox', 'Editable item 1', 'Editable item 2']
-readonlycombo_list = ['Readonly combobox', 'Item 1', 'Item 2']
+
+# Creating lists for the Comboboxes
+optionList = ['', 'OptionMenu', 'Option 1', 'Option 2']
+comboList = ['Combobox', 'Editable item 1', 'Editable item 2']
+readonlyComboList = ['Readonly combobox', 'Item 1', 'Item 2']
 
 # Create control variables
-a = tk.IntVar()
-b = tk.IntVar(value=1)
-c = tk.IntVar()
+a = tk.BooleanVar()
+b = tk.BooleanVar(value=True)
+c = tk.BooleanVar()
 d = tk.IntVar(value=2)
-e = tk.StringVar(value=option_list[1])
-f = tk.IntVar()
-g = tk.IntVar(value=75)
-h = tk.IntVar()
+e = tk.StringVar(value=optionList[1])
+f = tk.BooleanVar()
+g = tk.DoubleVar(value=75.0)
+h = tk.BooleanVar()
 
 # Create a Frame for the Checkbuttons
 checkframe = ttk.LabelFrame(root, text='Checkbuttons', width=210, height=200)
 checkframe.place(x=20, y=12)
 
 # Checkbuttons
-check1 = ttk.Checkbutton(checkframe, text='Unchecked', variable=a, offvalue=0, onvalue=1)
+check1 = ttk.Checkbutton(checkframe, text='Unchecked', variable=a)
 check1.place(x=20, y=20)
-check2 = ttk.Checkbutton(checkframe, text='Checked', variable=b, offvalue=0, onvalue=1)
+check2 = ttk.Checkbutton(checkframe, text='Checked', variable=b)
 check2.place(x=20, y=60)
-check3 = ttk.Checkbutton(checkframe, text='Third state', variable=c, offvalue=0, onvalue=1)
+check3 = ttk.Checkbutton(checkframe, text='Third state', variable=c)
 check3.state(['alternate'])
 check3.place(x=20, y=100)
 check4 = ttk.Checkbutton(checkframe, text='Disabled', state='disabled')
@@ -70,11 +79,12 @@ radio3.place(x=20, y=100)
 separator = ttk.Separator()
 separator.place(x=20, y=235, width=210)
 
-def scale_function(*args):
-    g.set(int(scale.get()))
+# Function for move the Progressbar when the Scale is moved
+def scaleFunction(*args):
+    g.set(scale.get())
 
 # Scale
-scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scale_function)
+scale = ttk.Scale(root, from_=100, to=0, variable=g, command=scaleFunction)
 scale.place(x=80, y=430)
 
 # Progressbar
@@ -92,17 +102,17 @@ spinbox.place(x=250, y=70)
 spinbox.insert(0, 'Spinbox')
 
 # Combobox
-combobox = ttk.Combobox(root, value=combo_list)
+combobox = ttk.Combobox(root, values=comboList)
 combobox.current(0)
 combobox.place(x=250, y=120)
 
 # Read-only combobox
-readonlycombo = ttk.Combobox(root, state='readonly', value=readonlycombo_list)
+readonlycombo = ttk.Combobox(root, state='readonly', values=readonlyComboList)
 readonlycombo.current(0)
 readonlycombo.place(x=250, y=170)
 
 # Menu for the Menubutton
-menu = tk.Menu(root, tearoff=0)
+menu = tk.Menu(root, tearoff=False)
 menu.add_command(label='Menu item 1')
 menu.add_command(label='Menu item 2')
 menu.add_separator()
@@ -114,49 +124,58 @@ menubutton = ttk.Menubutton(root, text='Menubutton', menu=menu, direction='below
 menubutton.place(x=250, y=220)
 
 # OptionMenu
-optionmenu = ttk.OptionMenu(root, e, *option_list)
+optionmenu = ttk.OptionMenu(root, e, *optionList)
 optionmenu.place(x=250, y=270)
 
-def button_function():
+# Button callback
+def buttonFunction():
     print('Button callback')
 
 # Button
-button = ttk.Button(root, text='Button', command=button_function)
+button = ttk.Button(root, text='Button', command=buttonFunction)
 button.place(x=250, y=320)
 
-# Accentbutton
-accentbutton = ttk.Button(root, text='AccentButton', style='AccentButton', command=button_function)
+# AccentButton
+accentbutton = ttk.Button(root, text='AccentButton', style='AccentButton', command=buttonFunction)
 accentbutton.place(x=250, y=370)
 
 # ToggleButton
-togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=f, offvalue=0, onvalue=1)
+togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=f)
 togglebutton.place(x=250, y=420)
 
 # Switch
-switch = ttk.Checkbutton(root, text='Switch on', style='Switch', variable=h, offvalue=0, onvalue=1)
+switch = ttk.Checkbutton(root, text='Switch on', style='Switch', variable=h)
 switch.place(x=250, y=470)
 switch.invoke()
 
-def switch_function():
+# Function for configure the Switch's text when switched
+def switchFunction():
     if h.get():
         switch.config(text='Switch on')
     else:
         switch.config(text='Switch off')
        
-switch.config(command=switch_function)
+switch.config(command=switchFunction)
 
 # Sizegrip
 sizegrip = ttk.Sizegrip(root)
-sizegrip.place(x=780, y=510)
+sizegrip.pack(padx=5, pady=5, side='bottom', anchor='se')
 
 # Notebook
 notebook = ttk.Notebook(root)
+
+# Tab 1
 notebookTab1 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab1, text='Tab 1')
+
+# Tab 2
 notebookTab2 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab2, text='Tab 2')
+
+# Tab 3
 notebookTab3 = ttk.Frame(notebook, width=335, height=150)
 notebook.add(notebookTab3, text='Tab 3')
+
 notebook.place(x=420, y=330)
 
 # Create a Frame for the Treeview
@@ -173,14 +192,17 @@ treeview.pack()
 
 treeScroll.config(command=treeview.yview)
 
+# Treeview columns
 treeview.column("#0", width=120)
 treeview.column(1, anchor='w', width=100)
 treeview.column(2, anchor='w', width=100)
 
+# Treeview headings
 treeview.heading("#0", text="Treeview", anchor='center')
 treeview.heading(1, text="Column 1", anchor='center')
 treeview.heading(2, text="Column 2", anchor='center')
 
+# Insert data into Treeview
 treeview.insert(parent='', index='end', iid=1, text="Parent", values=("Item 1", "Value 1"))
 treeview.item(1, open=True)
 treeview.insert(parent=1, index='end', iid=2, text="Child", values=("Subitem 1.1", "Value 1.1"))
@@ -214,4 +236,6 @@ treeview.insert(parent=21, index='end', iid=23, text="Child", values=("Subitem 4
 treeview.insert(parent=21, index='end', iid=24, text="Child", values=("Subitem 4.2.3", "Value 4.2.3"))
 treeview.insert(parent=19, index='end', iid=25, text="Child", values=("Subitem 4.3", "Value 4.3"))
 
+
+# And of course the mainloop
 root.mainloop()
