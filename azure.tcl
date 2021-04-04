@@ -6,7 +6,7 @@ package require Tk 8.6
 
 namespace eval ttk::theme::azure {
 
-    variable version 1.2
+    variable version 1.3
     package provide ttk::theme::azure $version
     variable colors
     array set colors {
@@ -18,7 +18,6 @@ namespace eval ttk::theme::azure {
         -selectbg       "#cccccc"
     }
 
-    # I took this function from the arc theme of the Sergei Golovan.
     proc LoadImages {imgdir} {
         variable I
         foreach file [glob -directory $imgdir *.png] {
@@ -308,6 +307,11 @@ namespace eval ttk::theme::azure {
                 active $I(rect-basic) \
             ] -border 4 -sticky ewns
 
+        ttk::style element create ToggleFrame.indicator image \
+            [list $I(down) \
+                selected $I(up) \
+            ] -width 15 -height 15 -sticky e
+
         # Radiobutton
         ttk::style configure TRadiobutton -padding 4
 
@@ -366,16 +370,16 @@ namespace eval ttk::theme::azure {
 
         # Progressbar
         ttk::style element create Horizontal.Progressbar.trough image $I(hor-basic) \
-            -border {} -sticky ew
+            -sticky ew
 
         ttk::style element create Horizontal.Progressbar.pbar image $I(hor-accent) \
-            -border {} -sticky ew
+            -sticky ew
 
         ttk::style element create Vertical.Progressbar.trough image $I(vert-basic) \
-            -border {} -sticky ns
+            -sticky ns
 
         ttk::style element create Vertical.Progressbar.pbar image $I(vert-accent) \
-            -border {} -sticky ns
+            -sticky ns
 
         # Entry
         ttk::style element create Entry.field \
@@ -454,7 +458,7 @@ namespace eval ttk::theme::azure {
         
         # Notebook
         ttk::style element create Notebook.client \
-            image $I(client) -border 4
+            image $I(notebook) -border 4
 
         ttk::style element create Notebook.tab \
             image [list $I(tab-disabled) \
@@ -468,7 +472,7 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Treeheading.cell \
             image [list $I(tree-basic) \
-                active $I(tree-hover)
+                pressed $I(tree-pressed)
             ] -border 5 -padding 4 -sticky ewns
         
         ttk::style element create Treeitem.indicator \
