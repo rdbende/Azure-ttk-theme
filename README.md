@@ -43,6 +43,7 @@ switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var)
 ```
 
 ## A short example
+for Python...
 ```python
 import tkinter as tk
 from tkinter import ttk
@@ -55,11 +56,25 @@ root.tk.call('source', 'azure.tcl')
 # Set the theme with the theme_use method
 ttk.Style().theme_use('azure')
 
-# A themed button
+# A themed (ttk) button
 button = ttk.Button(root, text="I'm a themed button")
 button.pack(pady=20)
 
 root.mainloop()
+```
+...and for Tcl
+```tcl
+package require Tk 8.6
+
+# Import the tcl file
+source "azure.tcl"
+
+# Set theme using the theme use method
+ttk::style theme use azure
+
+# A themed (ttk) button
+ttk::button .button -text "I'm a themed button"
+pack .button -pady 20
 ```
 
 ## Performance issue:
