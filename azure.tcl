@@ -14,8 +14,8 @@ namespace eval ttk::theme::azure {
         -bg             "#ffffff"
         -disabledfg     "#737373"
         -disabledbg     "#ffffff"
-        -selectfg       "#000000"
-        -selectbg       "#cccccc"
+        -selectfg       "#ffffff"
+        -selectbg       "#007fff"
     }
 
     proc LoadImages {imgdir} {
@@ -37,6 +37,7 @@ namespace eval ttk::theme::azure {
             -focuscolor $colors(-selectbg) \
             -selectbackground $colors(-selectbg) \
             -selectforeground $colors(-selectfg) \
+            -insertwidth 1 \
             -fieldbackground $colors(-selectbg) \
             -font TkDefaultFont \
             -borderwidth 1 \
@@ -51,6 +52,7 @@ namespace eval ttk::theme::azure {
             selectForeground [ttk::style lookup . -selectforeground] \
             activeBackground [ttk::style lookup . -selectbackground] \
             activeForeground [ttk::style lookup . -selectforeground]
+        
         option add *font [ttk::style lookup . -font]
 
 
@@ -145,32 +147,55 @@ namespace eval ttk::theme::azure {
         }
 
         ttk::style layout TCombobox {
-            Combobox.field -children {
-                Combobox.downarrow -side right -sticky {}
-                Combobox.padding -expand 1 -children {
-                    Combobox.textarea
+            Combobox.field -sticky nswe -children {
+                Combobox.padding -expand true -sticky nswe -children {
+                    Combobox.textarea -sticky nswe
                 }
             }
+            Combobox.button -side right -sticky ns -children {
+                Combobox.arrow -sticky nsew
+            }
         }
-
+        
         ttk::style layout TSpinbox {
-            Spinbox.field -children {
-                null -side right -sticky {} -children {
+            Spinbox.field -sticky nsew -children {
+                Spinbox.padding -expand true -sticky nswe -children {
+                    Spinbox.textarea -sticky nswe
+                }
+                
+            }
+            Spinbox.button -side right -sticky ns -children {
+                null -side right -children {
                     Spinbox.uparrow -side top
                     Spinbox.downarrow -side bottom
                 }
-                Spinbox.padding -expand 0 -children {
-                    Spinbox.textarea
-                }
             }
         }
-
+        
         ttk::style layout Horizontal.TSeparator {
             Horizontal.separator -sticky nswe
         }
 
         ttk::style layout Vertical.TSeparator {
             Vertical.separator -sticky nswe
+        }
+        
+        ttk::style layout Horizontal.TickScale {
+            Horizontal.TickScale.trough -sticky ew -children {
+                Horizontal.TickScale.slider -sticky w
+            }
+        }
+        
+        ttk::style layout Vertical.TickScale {
+            Vertical.TickScale.trough -sticky ns -children {
+                Vertical.TickScale.slider -sticky n
+            }
+        }        
+        
+        ttk::style layout Card {
+            Card.field {
+                Card.padding -expand 1 
+            }
         }
 
         ttk::style layout TLabelframe {
@@ -205,7 +230,9 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Button.button image \
             [list $I(rect-basic) \
+            	{selected disabled} $I(rect-basic) \
                 disabled $I(rect-basic) \
+                selected $I(rect-basic) \
                 pressed $I(rect-basic) \
                 active $I(button-hover) \
             ] -border 4 -sticky ewns
@@ -215,7 +242,9 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Toolbutton.button image \
             [list $I(empty) \
+            	{selected disabled} $I(empty) \
                 disabled $I(empty) \
+                selected $I(rect-basic) \
                 pressed $I(rect-basic) \
                 active $I(rect-basic) \
             ] -border 4 -sticky ewns
@@ -259,7 +288,9 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create AccentButton.button image \
             [list $I(rect-accent) \
+            	{selected disabled} $I(rect-accent-hover) \
                 disabled $I(rect-accent-hover) \
+                selected $I(rect-accent) \
                 pressed $I(rect-accent) \
                 active $I(rect-accent-hover) \
             ] -border 4 -sticky ewns
@@ -269,11 +300,12 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Checkbutton.indicator image \
             [list $I(box-basic) \
+                {alternate disabled} $I(check-tri-basic) \
                 {selected disabled} $I(check-basic) \
                 disabled $I(box-basic) \
-                {pressed alternate} $I(tri-hover) \
-                {active alternate} $I(tri-hover) \
-                alternate $I(tri-accent) \
+                {pressed alternate} $I(check-tri-hover) \
+                {active alternate} $I(check-tri-hover) \
+                alternate $I(check-tri-accent) \
                 {pressed selected} $I(check-hover) \
                 {active selected} $I(check-hover) \
                 selected $I(check-accent) \
@@ -307,18 +339,17 @@ namespace eval ttk::theme::azure {
                 active $I(rect-basic) \
             ] -border 4 -sticky ewns
 
-        ttk::style element create ToggleFrame.indicator image \
-            [list $I(down) \
-                selected $I(up) \
-            ] -width 15 -height 15 -sticky e
-
         # Radiobutton
         ttk::style configure TRadiobutton -padding 4
 
         ttk::style element create Radiobutton.indicator image \
             [list $I(outline-basic) \
+                {alternate disabled} $I(radio-tri-basic) \
                 {selected disabled} $I(radio-basic) \
                 disabled $I(outline-basic) \
+                {pressed alternate} $I(radio-tri-hover) \
+                {active alternate} $I(radio-tri-hover) \
+                alternate $I(radio-tri-accent) \
                 {pressed selected} $I(radio-hover) \
                 {active selected} $I(radio-hover) \
                 selected $I(radio-accent) \
@@ -348,7 +379,7 @@ namespace eval ttk::theme::azure {
             ] -sticky ns
 
         # Scale
-        ttk::style element create Horizontal.Scale.trough image $I(hor-basic) \
+        ttk::style element create Horizontal.Scale.trough image $I(scale-hor) \
             -border 5 -padding 0
 
         ttk::style element create Horizontal.Scale.slider \
@@ -358,7 +389,7 @@ namespace eval ttk::theme::azure {
                 active $I(circle-hover) \
             ] -sticky {}
 
-        ttk::style element create Vertical.Scale.trough image $I(vert-basic) \
+        ttk::style element create Vertical.Scale.trough image $I(scale-vert) \
             -border 5 -padding 0
 
         ttk::style element create Vertical.Scale.slider \
@@ -366,6 +397,27 @@ namespace eval ttk::theme::azure {
                 disabled $I(circle-basic) \
                 pressed $I(circle-hover) \
                 active $I(circle-hover) \
+            ] -sticky {}
+            
+        # Tickscale
+        ttk::style element create Horizontal.TickScale.trough image $I(scale-hor) \
+            -border 5 -padding 0
+        
+        ttk::style element create Horizontal.TickScale.slider \
+            image [list $I(tick-hor-accent) \
+                disabled $I(tick-hor-basic) \
+                pressed $I(tick-hor-hover) \
+                active $I(tick-hor-hover) \
+            ] -sticky {}
+            
+        ttk::style element create Vertical.TickScale.trough image $I(scale-vert) \
+            -border 5 -padding 0
+
+        ttk::style element create Vertical.TickScale.slider \
+            image [list $I(tick-vert-accent) \
+                disabled $I(tick-vert-basic) \
+                pressed $I(tick-vert-hover) \
+                active $I(tick-vert-hover) \
             ] -sticky {}
 
         # Progressbar
@@ -409,21 +461,30 @@ namespace eval ttk::theme::azure {
                 {readonly disabled} $I(rect-basic) \
                 {readonly pressed} $I(rect-basic) \
                 {readonly focus hover} $I(button-hover) \
-                {readonly focus} $I(rect-basic) \
+                {readonly focus} $I(button-hover) \
                 {readonly hover} $I(button-hover) \
                 {focus hover} $I(box-accent) \
                 readonly $I(rect-basic) \
+                invalid $I(box-invalid) \
                 disabled $I(box-basic) \
                 focus $I(box-accent) \
                 hover $I(box-hover) \
             ] -border 5 -padding {8}
 
-        ttk::style element create Combobox.downarrow image $I(down) \
+        ttk::style element create Combobox.button \
+            image [list $I(combo-button-basic) \
+                 {!readonly focus} $I(combo-button-focus) \
+                 {readonly focus} $I(combo-button-hover) \
+                 {readonly hover} $I(combo-button-hover)
+            ] -border 5 -padding {2 6 6 6}
+            
+        ttk::style element create Combobox.arrow image $I(down) \
             -width 15 -sticky e
 
         # Spinbox
         ttk::style element create Spinbox.field \
             image [list $I(box-basic) \
+                invalid $I(box-invalid) \
                 disabled $I(box-basic) \
                 focus $I(box-accent) \
                 hover $I(box-hover) \
@@ -442,6 +503,13 @@ namespace eval ttk::theme::azure {
                 pressed $I(down-accent) \
                 active $I(down-accent) \
             ] -border 4 -width 15 -sticky e
+            
+        ttk::style element create Spinbox.button \
+            image [list $I(combo-button-basic) \
+                 {!readonly focus} $I(combo-button-focus) \
+                 {readonly focus} $I(combo-button-hover) \
+                 {readonly hover} $I(combo-button-hover)
+            ] -border 5 -padding {2 6 6 6}
 
         # Sizegrip
         ttk::style element create Sizegrip.sizegrip image $I(size) \
@@ -452,22 +520,26 @@ namespace eval ttk::theme::azure {
 
         ttk::style element create Vertical.separator image $I(separator)
 
+        # Card
+        ttk::style element create Card.field image $I(card) \
+            -border 10 -padding 4 -sticky news
+
         # Labelframe
-        ttk::style element create Labelframe.border image $I(box-basic) \
+        ttk::style element create Labelframe.border image $I(card) \
             -border 5 -padding 4 -sticky news
         
         # Notebook
         ttk::style element create Notebook.client \
-            image $I(notebook) -border 4
+            image $I(notebook) -border 5
 
         ttk::style element create Notebook.tab \
             image [list $I(tab-disabled) \
                 selected $I(tab-basic) \
                 active $I(tab-hover) \
-            ] -border 5 -padding {12 4}
+            ] -border 5 -padding {14 4}
 
         # Treeview
-        ttk::style element create Treeview.field image $I(box-basic) \
+        ttk::style element create Treeview.field image $I(card) \
             -border 5
 
         ttk::style element create Treeheading.cell \
@@ -488,9 +560,7 @@ namespace eval ttk::theme::azure {
             -foreground [list selected $colors(-selectfg)]
 
         # Sashes
-        ttk::style configure TPanedwindow \
-            -width 1 -padding 0
-        ttk::style map TPanedwindow \
-            -background [list hover $colors(-bg)]
+        #ttk::style map TPanedwindow \
+        #    -background [list hover $colors(-bg)]
     }
 }

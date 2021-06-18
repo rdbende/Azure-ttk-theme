@@ -23,13 +23,21 @@ If you need a highlighted button, use `AccentButton`:
 ```python
 button = ttk.Button(root, text='AccentButton', style='AccentButton', command=callback)
 ```
-To create a ToggleButton you need a checkbutton, to which you can apply the `ToggleButton` style:
+To create a toggle button you need a checkbutton, to which you can apply the `ToggleButton` style:
 ```python
 togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=var)
 ```
 The use of switches is becoming more common these days, so this theme has a `Switch` style, that can be applied to checkbuttons:
 ```python
 switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var)
+```
+If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
+```python
+switch = ttk.Scale(root, style='TickScale', variable=var)
+```
+If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
+```python
+switch = ttk.Frame(root, style='Card', padding=(5, 6, 7, 8))
 ```
 
 ## A short example
@@ -54,14 +62,3 @@ button.pack(pady=20)
 
 root.mainloop()
 ```
-
-## Warnings:
-- If you don't use Windows, the default font for tkinter (`TkDefaultFont`) can be a bit ugly in the theme, so I recommend to you use [`tkextrafont`](https://github.com/TkinterEP/python-tkextrafont), which is great if you want to use an `.ttf` file without installing (I use Arial for it and recommend this to everyone)
-- Performance issue:\
-If you put a widget inside a `LabelFrame`, the hover rendering can be extra slow (the same goes for `Notebook`)
-
-## Design - inspired by Microsoft's [Fluent](https://www.microsoft.com/design/fluent/) design
-- Flat, rounded elements, high contrast
-- Colors: **blue** `#007fff` `#3398ff`, **gray** `#e6e6e6` `#cccccc` `#999999` `#737373`  `#333333` and of course `#ffffff` `#000000`  `#ff0000`
-
-
