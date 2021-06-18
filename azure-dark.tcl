@@ -40,6 +40,7 @@ namespace eval ttk::theme::azure-dark {
             -insertcolor $colors(-fg) \
             -insertwidth 1 \
             -fieldbackground $colors(-selectbg) \
+            -insertcolor $colors(-fg) \
             -font TkDefaultFont \
             -borderwidth 1 \
             -relief flat
