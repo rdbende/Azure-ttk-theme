@@ -24,10 +24,10 @@ root.rowconfigure(index=2, weight=1)
 style = ttk.Style(root)
 
 # Import the tcl file
-root.tk.call("source", "azure-dark.tcl")
+root.tk.call("source", "azure.tcl")
 
 # Set the theme with the theme_use method
-style.theme_use("azure-dark")
+style.theme_use("azure")
 
 # Create lists for the Comboboxes
 option_menu_list = ["", "OptionMenu", "Option 1", "Option 2"]
