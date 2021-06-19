@@ -41,11 +41,11 @@ switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var)
 ```
 If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
 ```python
-switch = ttk.Scale(root, style='TickScale', variable=var)
+scale = ttk.Scale(root, style='TickScale', variable=var)
 ```
 If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
 ```python
-switch = ttk.Frame(root, style='Card', padding=(5, 6, 7, 8))
+card = ttk.Frame(root, style='Card', padding=(5, 6, 7, 8))
 ```
 
 ## A short example
