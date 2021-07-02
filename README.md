@@ -1,6 +1,6 @@
 # Azure theme for ttk
 
-#### Cool news: I've created a new, green theme, based on this. [Check it out!](https://github.dom/rdbende/Forest-ttk-theme)
+#### Cool news: I've created a new, green theme, based on this. [Check it out!](https://github.com/rdbende/Forest-ttk-theme)
 
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
