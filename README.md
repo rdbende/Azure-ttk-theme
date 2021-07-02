@@ -1,5 +1,7 @@
 # Azure theme for ttk
 
+#### Cool news: I've created a new, green theme, based on this. [Check it out!](https://github.dom/rdbende/Forest-ttk-theme)
+
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
 
@@ -25,24 +27,28 @@ ttk::style theme use azure / azure-dark
 ```
 
 ## New style elements
-Azure theme has a style for every ttk widget, but there are some **new** widget styles, such as an accent button, toggle switch, and toggle button. You can apply these with the style option
+Azure theme has a style for every ttk widget, but there are some **new** widget styles, such as an accent button, toggle switch, toggle button, tickscale, and card. You can apply these with the style option
 
 If you need a highlighted button, use `AccentButton`:
 ```python
 button = ttk.Button(root, text='AccentButton', style='AccentButton', command=callback)
 ```
+
 To create a toggle button you need a checkbutton, to which you can apply the `ToggleButton` style:
 ```python
 togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=var)
 ```
+
 The use of switches is becoming more common these days, so this theme has a `Switch` style, that can be applied to checkbuttons:
 ```python
 switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var)
 ```
+
 If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
 ```python
 scale = ttk.Scale(root, style='TickScale', variable=var)
 ```
+
 If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
 ```python
 card = ttk.Frame(root, style='Card', padding=(5, 6, 7, 8))
