@@ -11,9 +11,9 @@ namespace eval ttk::theme::azure-light {
     ttk::style theme create azure-light -parent clam -settings {
         proc load_images {imgdir} {
             variable I
-            foreach file [glob -directory $imgdir *.png] {
+            foreach file [glob -directory $imgdir *.gif] {
                 set img [file tail [file rootname $file]]
-                set I($img) [image create photo -file $file -format png]
+                set I($img) [image create photo -file $file -format gif]
             }
         }
 
