@@ -1,90 +1,99 @@
 # Azure theme for ttk
 
-#### Cool news: I've created a new, green theme, based on this. [Check it out!](https://github.com/rdbende/Forest-ttk-theme)
+## Warning!
+#### There were plenty of big changes and improvements in version `2.0`. This affected, among other things, the way of setting a theme and additional widget style naming! If you want/have to use a different theme setting method or widget style naming, please use version `1.4.1`.
 
-![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure%20screenshot.png)
-![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Azure-dark%20screenshot.png)
+#### New widget style names:
+New name | Old name
+- | -
+AccentButton | Accent.TButton
+ToggleButton | Toggle.TButton
+Switch | Switch.TCheckbutton
+TickScale | Tick.TScale
+Card | Card.TFrame
 
-## How to use
-### Python / tkinter
-To use the theme just import the **azure.tcl**, or the **azure-dark.tcl** file, and call the `theme_use` method to set the theme:
+![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Light%20screenshot.png)
+![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Dark%20screenshot.png)
+
+## How to use?
+Just like for my [Sun Valley](https://github.com/rdbende/Sun-Valley-ttk-theme) theme in version 2.0 I wanted to make usage of the theme very simple, so the theme setting is handled by a separate tcl script.
+This way whether you want to use a dark or light theme, you need to import just a single file. The other thing that makes this a good solution is that normally switching between light and dark theme is not entirely perfect, and the colors are not correct.
+
 ```python
-# Import the tcl file
-root.tk.call('source', 'azure.tcl / azure-dark.tcl')
+# Just simply import the azure.tcl file
+widget.tk.call("source", "azure.tcl")
 
-# Set the theme with the theme_use method
-ttk.Style().theme_use('azure / azure-dark')
+# Then set the theme you want with the set_theme procedure
+widget.tk.call("set_theme", "light")
+# or
+widget.tk.call("set_theme", "dark")
 ```
 
-### Tcl / tk
-To use the theme just import the **azure.tcl**, or the **azure-dark.tcl** file, and call the `theme use` method to set the theme:
-```tcl
-# Import the tcl file
-source "azure.tcl / azure-dark.tcl"
+### Changing themes
+Normally changing between themes isn't that easy, because then the colors aren't correct. See this [Stackoverflow question](https://stackoverflow.com/questions/66576662/how-to-switch-between-dark-and-light-ttk-theme). However, with my current solution, you can change theme at any time, without any color issues.
 
-# Set theme using the theme use method
-ttk::style theme use azure / azure-dark
-```
-
-## New style elements
-Azure theme has a style for every ttk widget, but there are some **new** widget styles, such as an accent button, toggle switch, toggle button, tickscale, and card. You can apply these with the style option
-
-If you need a highlighted button, use `AccentButton`:
-```python
-button = ttk.Button(root, text='AccentButton', style='AccentButton', command=callback)
-```
-
-To create a toggle button you need a checkbutton, to which you can apply the `ToggleButton` style:
-```python
-togglebutton = ttk.Checkbutton(root, text='ToggleButton', style='ToggleButton', variable=var)
-```
-
-The use of switches is becoming more common these days, so this theme has a `Switch` style, that can be applied to checkbuttons:
-```python
-switch = ttk.Checkbutton(root, text='Switch', style='Switch', variable=var)
-```
-
-If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
-```python
-scale = ttk.Scale(root, style='TickScale', variable=var)
-```
-
-If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
-```python
-card = ttk.Frame(root, style='Card', padding=(5, 6, 7, 8))
-```
-
-## A short example
-for Python...
 ```python
 import tkinter as tk
 from tkinter import ttk
 
 root = tk.Tk()
 
-# Import the tcl file
-root.tk.call('source', 'azure.tcl')
+# Pack a big frame so, it behaves like the window background
+big_frame = ttk.Frame(root)
+big_frame.pack(fill="both", expand=True)
 
-# Set the theme with the theme_use method
-ttk.Style().theme_use('azure')
+# Set the initial theme
+root.tk.call("source", "azure.tcl")
+root.tk.call("set_theme", "light")
 
-# A themed (ttk) button
-button = ttk.Button(root, text="I'm a themed button")
-button.pack(pady=20)
+def change_theme():
+    # NOTE: The theme's real name is azure-<mode>
+    if root.tk.call("ttk::style", "theme", "use") == "azure-dark":
+        # Set light theme
+        root.tk.call("set_theme", "light")
+    else:
+        # Set dark theme
+        root.tk.call("set_theme", "dark")
+
+# Remember, you have to use ttk widgets
+button = ttk.Button(big_frame, text="Change theme!", command=change_theme)
+button.pack()
 
 root.mainloop()
 ```
-...and for Tcl
-```tcl
-package require Tk 8.6
 
-# Import the tcl file
-source "azure.tcl"
+## New style elements
+Azure theme has a style for every ttk widget, but there are some **new** widget styles, such as an accent button, toggle switch, toggle button, tickscale, and card. You can apply these with the style parameter.
 
-# Set theme using the theme use method
-ttk::style theme use azure
-
-# A themed (ttk) button
-ttk::button .button -text "I'm a themed button"
-pack .button -pady 20
+If you need a highlighted button, use `Accent.TButton`:
+```python
+button = ttk.Button(root, text='Accent button', style='Accent.TButton', command=callback)
 ```
+
+To create a toggle button you need a checkbutton, to which you can apply the `ToggleButton` style:
+```python
+togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Toggle.TButton', variable=var)
+```
+
+The use of switches is becoming more common these days, so this theme has a `Switch` style, that can be applied to checkbuttons:
+```python
+switch = ttk.Checkbutton(root, text='Switch', style='Switch.TCheckbutton', variable=var)
+```
+
+If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
+```python
+scale = ttk.Scale(root, style='Tick.TScale', variable=var)
+```
+
+If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
+```python
+card = ttk.Frame(root, style='Card.TFrame', padding=(5, 6, 7, 8))
+```
+
+## Bugs
+- Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Azure-ttk-theme/tree/gif-based/)
+- When you change the theme, the window resizes. This is a quite strange bug that applies to all ttk themes. 
+
+If you scrolled down here, please check out my other themes!
+- [Sun Valley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme) a theme that looks like Windows 11!
+- [Forest ttk theme](https://github.com/rdbende/Forest-ttk-theme) a theme inspired by Excel's look.
