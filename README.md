@@ -5,7 +5,7 @@
 
 #### New widget style names:
 New name | Old name
-- | -
+-|-
 AccentButton | Accent.TButton
 ToggleButton | Toggle.TButton
 Switch | Switch.TCheckbutton
