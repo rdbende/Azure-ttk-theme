@@ -1,6 +1,12 @@
 # Azure theme for ttk
 
-## Warning!
+## Warnings!
+
+### Relicensing
+#### Any version below 2.0 is licnsed under the LGPL v2.1 license. Any version above version 2.0 is licensed under the MIT license! Please pay attention to which version the conditions apply.
+
+### Theme refactored
+
 #### There were plenty of big changes and improvements in version `2.0`. This affected, among other things, the way of setting a theme and additional widget style naming! If you want/have to use a different theme setting method or widget style naming, please use version `1.4.1`.
 
 #### New widget style names:
