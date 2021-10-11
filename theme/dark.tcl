@@ -289,8 +289,8 @@ namespace eval ttk::theme::azure-dark {
             [list $I(off-basic) \
                 {selected disabled} $I(on-basic) \
                 disabled $I(off-basic) \
-                {pressed selected} $I(on-basic) \
-                {active selected} $I(on-basic) \
+                {pressed selected} $I(on-accent) \
+                {active selected} $I(on-accent) \
                 selected $I(on-accent) \
                 {pressed !selected} $I(off-basic) \
                 active $I(off-basic) \
