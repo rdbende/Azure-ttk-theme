@@ -16,11 +16,11 @@ There were plenty of big changes and improvements in version `2.0`. This affecte
 #### New widget style names:
 New name | Old name
 -|-
-AccentButton | Accent.TButton
-ToggleButton | Toggle.TButton
-Switch | Switch.TCheckbutton
-TickScale | Tick.TScale
-Card | Card.TFrame
+Accent.TButton | AccentButton
+Toggle.TButton | ToggleButton
+Switch.TCheckbutton | Switch
+Tick.TScale | TickScale
+Card.TFrame | Card
 
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Light%20screenshot.png)
 ![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Dark%20screenshot.png)
