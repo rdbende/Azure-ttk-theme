@@ -1,29 +1,6 @@
 # Azure theme for ttk
 
-## Warnings!
-
-### Relicensing
-Any release **below** 2.0 is licnsed under the LGPL v2.1 license.
-
-Any release **above** version 2.0 is licensed under the MIT license!
-
-Please pay attention to which terms and conditions apply to the release you using!
-
-### Theme refactored
-
-There were plenty of big changes and improvements in version `2.0`. This affected, among other things, the way of setting a theme and additional widget style naming! If you want/have to use a different theme setting method or widget style naming, please use version `1.4.1`.
-
-#### New widget style names:
-New name | Old name
--|-
-Accent.TButton | AccentButton
-Toggle.TButton | ToggleButton
-Switch.TCheckbutton | Switch
-Tick.TScale | TickScale
-Card.TFrame | Card
-
-![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Light%20screenshot.png)
-![image](https://github.com/rdbende/Azure-ttk-theme/blob/main/Dark%20screenshot.png)
+![Screenshot of the Azure theme](screenshot.png)
 
 ## How to use?
 Just like for my [Sun Valley](https://github.com/rdbende/Sun-Valley-ttk-theme) theme in version 2.0 I wanted to make usage of the theme very simple, so the theme setting is handled by a separate tcl script.
@@ -77,25 +54,25 @@ Azure theme has a style for every ttk widget, but there are some **new** widget 
 
 If you need a highlighted button, use `Accent.TButton`:
 ```python
-button = ttk.Button(root, text='Accent button', style='Accent.TButton', command=callback)
+accent_button = ttk.Button(root, text='Accent button', style='Accent.TButton', command=callback)
 ```
 
-To create a toggle button you need a checkbutton, to which you can apply the `ToggleButton` style:
+To create a toggle button you need a checkbutton, to which you can apply the `Toggle.TButton` style:
 ```python
-togglebutton = ttk.Checkbutton(root, text='Toggle button', style='Toggle.TButton', variable=var)
+toggle_button = ttk.Checkbutton(root, text='Toggle button', style='Toggle.TButton', variable=var)
 ```
 
-The use of switches is becoming more common these days, so this theme has a `Switch` style, that can be applied to checkbuttons:
+The use of switches instead of checkboxes is becoming more common these days, so this theme has a `Switch.TCheckbutton` style, that can be applied to checkbuttons:
 ```python
 switch = ttk.Checkbutton(root, text='Switch', style='Switch.TCheckbutton', variable=var)
 ```
 
-If you don't like the big circle on the scale, you prefer something more solid, then use the `TickScale` style:
+If you don't like the big circle on the scale, you prefer something more solid, then use the `Tick.TScale` style:
 ```python
-scale = ttk.Scale(root, style='Tick.TScale', variable=var)
+tick_scale = ttk.Scale(root, style='Tick.TScale', variable=var)
 ```
 
-If you only want a border around your widgets, not an entire LabelFrame then apply the `Card` style to a Frame:
+If you only want a border around your widgets, not an entire LabelFrame then apply the `Card.TFrame` style to a Frame:
 ```python
 card = ttk.Frame(root, style='Card.TFrame', padding=(5, 6, 7, 8))
 ```
