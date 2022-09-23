@@ -409,7 +409,7 @@ namespace eval ttk::theme::azure-dark {
             image [list $I(box-basic) \
                 {focus hover} $I(box-accent) \
                 invalid $I(box-invalid) \
-                disabled $I(box-basic) \
+                disabled $I(box-disabled) \
                 focus $I(box-accent) \
                 hover $I(box-hover) \
             ] -border 5 -padding {8} -sticky news
