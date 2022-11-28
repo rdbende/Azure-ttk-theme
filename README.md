@@ -79,7 +79,7 @@ card = ttk.Frame(root, style='Card.TFrame', padding=(5, 6, 7, 8))
 
 ## Bugs
 - Tk isn't really good at displaying `png` images, so if your program is laggy with the theme, please check out the [gif-based branch!](https://github.com/rdbende/Azure-ttk-theme/tree/gif-based/)
-- When you change the theme, the window resizes. This is a quite strange bug that applies to all ttk themes. 
+- If your app has a treeview widget, and you change the theme the window will expand horizontally. This is a quite strange bug that applies to all ttk themes. 
 
 If you scrolled down here, please check out my other themes!
 - [Sun Valley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme) a theme that looks like Windows 11!
