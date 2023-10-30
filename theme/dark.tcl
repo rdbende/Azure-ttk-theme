@@ -206,6 +206,7 @@ namespace eval ttk::theme::azure-dark {
                 pressed $I(rect-basic) \
                 selected $I(rect-basic) \
                 active $I(button-hover) \
+                focus $I(button-hover) \
             ] -border 4 -sticky ewns
 
         # Toolbutton
@@ -264,6 +265,7 @@ namespace eval ttk::theme::azure-dark {
                 pressed $I(rect-accent) \
                 selected $I(rect-accent) \
                 active $I(rect-accent-hover) \
+                focus $I(rect-accent-hover) \
             ] -border 4 -sticky ewns
 
         # Checkbutton
